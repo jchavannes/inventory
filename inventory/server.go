@@ -1,12 +1,15 @@
-package server
+package inventory
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func Run() error {
+func RunServer() error {
 	config, err := GetConfig()
 	if err != nil {
-		return err
+		return fmt.Errorf("Error getting config file: %s", err)
 	}
+
 	fmt.Printf("Inventory root: %s\n", config.InventoryRoot)
 	return nil
 }
